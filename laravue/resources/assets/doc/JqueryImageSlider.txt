@@ -1,0 +1,18 @@
+jquery image slider
+--
+http://tympanus.net/Tutorials/CSS3FluidParallaxSlideshow/
+http://csscience.com/responsiveslidercss3/
+http://responsiveslides.com/themes/themes.html
+http://designmodo.com/demo/responsiveslider/
+http://demo.sequencejs.com/modern-slide-in/
+http://tympanus.net/Development/GammaGallery/
+http://www.itoffside.com/nivo-slider-jquery-plugin/
+http://unslider.com/ --recommend
+http://jsfiddle.net/sachin377/2patspw2/ --recommend***
+http://slideme.luigiferraresi.it/
+http://jsfiddle.net/Blink/cWMY9/show/
+http://www.pixedelic.com/plugins/camera/development/camera_1.0.6/demo/basic.htm
+http://johnpolacek.github.io/ResponsiveThumbnailGallery/
+http://bxslider.com/examples/thumbnail-pager-1
+https://amazingslider.com/examples/jquery-image-and-video-gallery-with-thumbnails/
+http://tympanus.net/Development/ColorExtraction/

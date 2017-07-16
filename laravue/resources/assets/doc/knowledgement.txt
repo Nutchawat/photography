@@ -1,0 +1,36 @@
+bootstrap can use responsive images you can try it in below link ..
+http://getbootstrap.com/css/?#images
+=======
+Responsive utilities
+http://getbootstrap.com/css/#responsive-utilities
+=======
+thumbnail-gallery
+https://blackrockdigital.github.io/startbootstrap-thumbnail-gallery/#
+=======
+MariaDB
+my Database_user
+Applications/XAMPP/xamppfiles/bin/mysql -u root -p;
+--
+Applications/XAMPP/xamppfiles/bin/mysql -u gead -p
+1234
+--
+Applications/XAMPP/xamppfiles/bin/mysql -u photography -p
+1234
+--
+dump_file
+Applications/XAMPP/xamppfiles/bin/mysqldump -u photography -p photography
+--
+MariaDB [(none)]>use photography;
+MariaDB [photography]> show columns in tphotos;
+=======
+Set permission in folders
+User: rwx (read, write and execute)
+Group: r-x (read and execute)
+Others: r-x (read and execute)
+:. r=4;w=2;x=1;
+ls -l
+chmod -R 777 <dirname>
+PS. -R mean recursive.
+--
+Scroll top
+http://jsfiddle.net/yeyene/J3zyq/3/

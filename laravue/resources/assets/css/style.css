@@ -1,0 +1,519 @@
+
+/*	Table of Contents
+	update on Sat Nov 14 2016 10:06 PM.
+	I. 		General
+	II.		Admin Mode
+	III. 	Plugin
+	VI. 	loader
+	VII. 	Media queries
+*/
+
+
+/*--------------------------------------------------------*\
+	I. General
+/*--------------------------------------------------------*/
+
+html {
+	height: 100%;
+	box-sizing: border-box;
+}
+body #login{
+	background: #f5f5f5;
+}
+p {
+	line-height: 28px;
+}
+#etc,#personal,#portrait,#women,#still,#men,#bio {
+	padding:9px 0 6px 6px;
+}
+#page_index {
+	padding: 16px;
+}
+.fix-scroll {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+::moz-selection {
+	color: #ffffff;
+	background: #000000;
+}
+::selection {
+	color: #ffffff;
+	background: #000000;
+}
+.bio-text {
+	background: #ffffff;
+	padding: 5px;
+}
+.text-bio-header{
+	background: #fff;
+	margin: 100px 50px 0 50px;
+	padding: 10px 0 10px 0;
+}
+
+/*-- Font Style --*/
+.font-style {
+	/*font-family: lato,sans-serif;*/
+	font-family: 'Dosis', sans-serif;
+}
+.font-size-header {
+	font-size:20px;
+}
+.font-size-body {
+	font-size:11px;
+	letter-spacing: 2px;
+}
+
+/*-- Navigator Top --*/
+ul.topnav li.icon { display: none; }
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+ul.topnav li a {
+	display: inline-block;
+	color: #000000;
+	text-decoration: none;
+	transition: 0.3s;
+	font-size: 14px;
+	margin-left:3px;
+	padding-left: 7px;
+}
+ul li.nav-column:hover {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.active-page {
+	border-bottom:1px solid rgba(0, 0, 0, 0.21);
+	padding: 9px 0 6px 6px;
+}
+
+/*-- All Section --*/
+.section-header {
+	padding :33px 16px 25px 20px;
+	line-height: 40px;
+}
+.section-nav {
+	border-bottom:1px solid #000000;
+	margin-bottom: 17px !important;
+}
+.section-right {
+	float: right;
+	text-align: right;
+	padding-right:15px;
+}
+.section-bio{
+	display: inline-block;
+	width: 100%;
+}
+.section-bio-left{
+	float: left;
+	width: 50%;
+	font-size: 30px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.47);
+}
+.section-bio-right{
+	float: left;
+	width: 45%;
+	font-size: 13px;
+	text-align: left;
+	padding: 25px 25px 25px 28px;
+	background: rgba(236, 236, 236, 0.29);
+	color: #828288;
+	margin-right: 10px;
+}
+.layout-left {
+	float: left;
+	width: 40%;
+}
+.layout-right {
+	float: left;
+	width: 9.27%;
+	margin-top:-11px;
+	text-align: center;
+}
+
+/*-- Footer --*/
+.section-footer {
+    height: 50px;
+    background: rgba(204, 204, 204, 0.38);
+    padding: 18px 0 0 20px;
+}
+footer {
+	position: relative;
+}
+
+/*-- GoTop Button--*/
+#goTop {
+    padding:5px;
+    position:fixed;
+    right:3%;
+    bottom: -100px;
+    z-index: 999;
+    border-radius: 3px;
+    width:35px; 
+    height: 40px;
+    text-align: center;
+    background:rgba(116, 118, 119, 0.62);
+    color: #FFFFFF;
+    padding-top: 8px;
+    cursor:pointer;
+ }
+#goTop:hover {
+    background:rgba(158, 158, 158, 0.56);
+    color: #565656;
+}
+
+/*-- Photo for show --*/
+.image {
+    position:relative;
+    float: left;
+    margin: 2px;
+}
+.cover-img {
+	color: red;
+	text-transform: uppercase;
+}
+
+/*-- Modal --*/
+.modal {
+	
+}
+
+/*--------------------------------------------------------*\
+	II. Admin Mode
+/*--------------------------------------------------------*/
+
+/*-- Login --*/
+.layout-login {
+	margin-bottom: 11px;
+}
+.page-login {
+	width: 300px;
+	margin: 0 auto;
+}
+.text-delete {
+    display: inline-block;
+    margin-right: 13px;
+    color: #777676;
+}
+.section-info {
+    padding: 0 0 10px 0px;
+    margin-bottom: 27px;
+}
+.tag-delete {
+	background: #f44336;
+	display: inline-block;
+	font-size: 10px;
+	width: 76px;
+	height: 32px;
+	text-align: center;
+	padding-top: 8px;
+	color: #ffffff;
+	border-radius: 15px;
+	margin: 0 10px 0 0;
+}
+.block-upload {
+    height: 100%;
+    width: 100%;
+    margin: 15px 0 5px 0;
+    display: inline-block;
+    padding: 0 0 20px 15px;
+}
+.block-btn{
+	border-top: 1px solid rgba(158, 158, 158, 0.26);
+    padding: 20px 0 20px 15px;
+}
+.upload {
+    border: 1px solid #d8d8d8;
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding: 9px 0 0 10px;
+    background: #e0e0e0;
+    color: #777;
+    cursor: pointer;
+    border-radius: 5px;
+	-webkit-box-shadow: -4px 4px 14px -2px rgb(236, 233, 233);
+	-moz-box-shadow: -4px 4px 14px -2px rgb(236, 233, 233);
+	box-shadow: -4px 4px 14px -2px rgb(236, 233, 233);
+}
+#upload:hover{
+	background: #afafaf;
+	color: #ffffff;
+	border: 1px solid #afafaf;
+}
+#info-delete {
+	font-size: 15px;
+}
+.select-box{
+    width: 85%;
+    height: 40px;
+    font-size: 12px;
+    margin-left: 3px;
+    border: 1px solid #e0e0e0;
+    background: #e0e0e0;
+}
+.file{
+	display: none !important;
+}
+
+/*--------------------------------------------------------*\
+	III. Plugin
+/*--------------------------------------------------------*/
+
+/*-- Responsive Slider --*/
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+/*--------------------------------------------------------*\
+	VI. loader
+/*--------------------------------------------------------*/
+
+#loader {
+	position: fixed;
+	width:100%;
+	height: 100%;
+	background: #ffffff;
+	z-index: 9999;
+	overflow: hidden;
+	left: 0;
+}
+.cssload-spinner {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    left: 50%;
+    top: calc(40%);
+}
+.cssload-spinner:after, .cssload-spinner:before {
+	position: absolute;
+	content: "";
+	border: 2px solid rgb(161,161,161);
+	width: 31px;
+	height: 31px;
+}
+.cssload-spinner:after {
+	animation: cssload-spinner1 2.88s linear infinite;
+		-o-animation: cssload-spinner1 2.88s linear infinite;
+		-ms-animation: cssload-spinner1 2.88s linear infinite;
+		-webkit-animation: cssload-spinner1 2.88s linear infinite;
+		-moz-animation: cssload-spinner1 2.88s linear infinite;
+}
+.cssload-spinner:before {
+	width: 43px;
+	height: 43px;
+	margin-left: -6.5px;
+	margin-top: -6.5px;
+	animation: cssload-spinner2 2.88s linear infinite;
+		-o-animation: cssload-spinner2 2.88s linear infinite;
+		-ms-animation: cssload-spinner2 2.88s linear infinite;
+		-webkit-animation: cssload-spinner2 2.88s linear infinite;
+		-moz-animation: cssload-spinner2 2.88s linear infinite;
+}
+
+@keyframes cssload-spinner1 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes cssload-spinner1 {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes cssload-spinner1 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-spinner1 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes cssload-spinner1 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@keyframes cssload-spinner2 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+@-o-keyframes cssload-spinner2 {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(-360deg);
+	}
+}
+
+@-ms-keyframes cssload-spinner2 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(-360deg);
+	}
+}
+
+@-webkit-keyframes cssload-spinner2 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(-360deg);
+	}
+}
+
+@-moz-keyframes cssload-spinner2 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(-360deg);
+	}
+}
+
+/*--------------------------------------------------------*\
+	VII. Media queries.
+/*--------------------------------------------------------*/
+
+@media (max-width: 991px) {	
+	/*-- Navigator Top --*/
+	li.icon a {
+		float: right;
+	}
+	ul.topnav li:not(:first-child){
+		display: none;
+	}
+	ul.topnav li.icon {
+		float: right;
+		display: inline-block;
+		padding: 0;
+	}
+	ul.topnav.responsive {
+		position: relative;
+	}
+	ul.topnav.responsive li {
+		display: inline-block;
+	}
+	ul.topnav.responsive li a {
+		display: block;
+		text-align: left;
+		padding-left: 7px;
+	}
+	ul.topnav.responsive li.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	#icon-hambg {
+		color:#777;
+	}
+
+	/*-- All Section <main> --*/
+	.section-header {
+		padding :33px 16px 25px 20px;
+		line-height: 40px;
+	}
+	.font-size-header {
+    	font-size: 15px;
+	}
+	ul li.nav-column {
+		width: 100%;
+	}
+	.layout-left {
+		width: 70%;
+	}
+	.layout-right {
+		float: left;
+		margin-top:0px;
+	}
+	.section-bio-left{
+		width:100%;
+	}
+	.section-bio-right{
+		width: 100%;
+	}
+	.text-bio-header{
+		margin: 0;
+	}
+	/*-- Footer --*/
+	#text-footer {
+		display: none;
+	}
+	.section-right {
+	    padding-top: 5px;
+	    font-size: 14.8px;
+	    width: 100%;
+	}
+	.section-footer {
+    	padding: 8px 0 0 20px;
+	}
+}
+
+
+
+

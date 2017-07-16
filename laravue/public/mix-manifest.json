@@ -1,0 +1,15 @@
+{
+  "/js/app.js": "/js/app.js",
+  "/css/app.css": "/css/app.css",
+  "/js/main.js": "/js/main.js",
+  "/js/notvue/notvue.js": "/js/notvue/notvue.js",
+  "/js/notvue/responsiveslides.min.js": "/js/notvue/responsiveslides.min.js",
+  "/js/notvue/perfectLayout.min.js": "/js/notvue/perfectLayout.min.js",
+  "/js/notvue/main.js": "/js/notvue/main.js",
+  "/js/notvue/lightGallery.min.js": "/js/notvue/lightGallery.min.js",
+  "/js/notvue/lg-thumbnail.min.js": "/js/notvue/lg-thumbnail.min.js",
+  "/js/notvue/lg-fullscreen.min.js": "/js/notvue/lg-fullscreen.min.js",
+  "/js/notvue/jquery.min.js": "/js/notvue/jquery.min.js",
+  "/mix.js": "/mix.js",
+  "/css/style.css": "/css/style.css"
+}

@@ -1,0 +1,49 @@
+version: "2"
+services:
+    server:
+        build: "./build/php"
+        container_name: "server"
+        volumes:
+            - "./laravue:/var/www/code"
+        working_dir: "/var/www/code"
+        environment:
+            - "TZ=Asia/Bangkok"
+        links:
+            - mysql8
+        ports:
+            - "80:80"
+        network_mode: "bridge"
+        restart: always
+    composer:
+        container_name: "composer"
+        image: "composer:latest"
+        volumes:
+            - "./laravue:/var/www/code"
+            - "./laravue/vendor/composer/cache:/composer/cache"
+        working_dir: "/var/www/code"
+        network_mode: "bridge"
+    node:
+        container_name: "yarn"
+        image: "node:alpine"
+        volumes:
+            - "./laravue:/var/www/code"
+            - "./laravue/vendor/yarn:/usr/local/share/.cache/yarn"
+        working_dir: "/var/www/code"
+        network_mode: "bridge"
+    mysql8:
+        image: mysql:8.0.1
+        container_name: mysql8
+        volumes:
+            - ./build/mysql:/docker-entrypoint-initdb.d
+            - ./tmp/mysql:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE=photography
+            - MYSQL_ROOT_PASSWORD=password
+        network_mode: "bridge"
+    pma:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - mysql8:db
+        ports:
+            - 8080:80
+        network_mode: "bridge"
